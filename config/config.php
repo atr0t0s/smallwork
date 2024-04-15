@@ -1,4 +1,5 @@
 <?php
+
 namespace Config;
 
 require_once(__DIR__ . '/bootstrap.php');
@@ -8,16 +9,35 @@ date_default_timezone_set(Boot::strap()['general']['default_timezone']);
 ini_set("display_errors", Boot::strap()['general']['display_errors']);
 ini_set("expose_php", Boot::strap()['general']['expose_php']);
 
-class Config {
-    public function get() {
-        $conf = Boot::strap();
-        $config['base_path'] = $conf['path']['base'];
-        $config['app_mode'] = $conf['general']['app_mode'];
-        $config['raw_domain'] = $conf['general']['raw_domain'];
-        $config['api_route'] = $conf['path']['api_route'];
-        $config['web_route'] = $conf['path']['web_route'];
-        $config['web_views'] = $conf['path']['web_views'];
+class Config
+{
+  private $basepath;
+  private $appmode;
+  private $rawdomain;
+  private $apiroute;
+  private $webroute;
+  private $webviews;
 
-        return $config;
-    }
+  function __construct()
+  {
+    $conf = Boot::strap();
+    $this->basepath   = $conf['path']['base'];
+    $this->appmode    = $conf['general']['app_mode'];
+    $this->rawdomain  = $conf['general']['raw_domain'];
+    $this->apiroute   = $conf['path']['api_route'];
+    $this->webroute   = $conf['path']['web_route'];
+    $this->webviews   = $conf['path']['web_views'];
+  }
+
+  public function get()
+  {
+    return [
+      "base_path"   => $this->basepath,
+      "app_mode"    => $this->appmode,
+      "raw_domain"  => $this->rawdomain,
+      "api_route"   => $this->apiroute,
+      "web_route"   => $this->webroute,
+      "web_views"   => $this->webviews
+    ];
+  }
 }

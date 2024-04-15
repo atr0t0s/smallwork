@@ -3,27 +3,25 @@
 class BadRequest extends Exception
 {
 
-    public function index()
-    {
-        header("Content-type: application/json");
+  public static function index()
+  {
+    header("Content-type: application/json");
 
-        $response = [
-            'error' => "Bad Request"
-        ];
+    $response = [
+      'error' => "Bad Request"
+    ];
 
-        echo json_encode($response);
+    echo json_encode($response);
+  }
 
-    }
+  public static function ArgumentCountError()
+  {
+    header("Content-type: application/json");
 
-    public function ArgumentCountError()
-    {
-        header("Content-type: application/json");
+    $response = [
+      'error' => "Wrong number of parameters."
+    ];
 
-        $response = [
-            'error' => "Wrong number of parameters."
-        ];
-
-        echo json_encode($response);
-    }
-
+    echo json_encode($response);
+  }
 }

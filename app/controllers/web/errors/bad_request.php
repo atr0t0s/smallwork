@@ -3,24 +3,23 @@
 class BadRequest extends Exception
 {
 
-    public function index()
-    {
+  public static function index()
+  {
 
-        $response = [
-            'error' => "Bad Request"
-        ];
+    $response = [
+      'error' => "Bad Request"
+    ];
 
-        return $response;
-    }
+    return $response;
+  }
 
-    public function ArgumentCountError()
-    {
+  public static function ArgumentCountError()
+  {
 
-        $response = [
-            'error' => "Wrong number of parameters."
-        ];
+    $response = [
+      'error' => "Wrong number of parameters."
+    ];
 
-        return $response;
-
-    }
+    return $response;
+  }
 }
