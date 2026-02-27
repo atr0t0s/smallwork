@@ -14,7 +14,8 @@
         "psr-4": {
             "Smallwork\\": "src/",
             "App\\": "app/"
-        }
+        },
+        "files": ["src/helpers.php"]
     },
     "autoload-dev": {
         "psr-4": {
