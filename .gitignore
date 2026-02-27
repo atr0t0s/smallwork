@@ -1,1 +1,7 @@
+vendor/
+.env
+storage/logs/*.log
+storage/cache/*
+storage/db.sqlite
+composer.lock
 config/config.local.ini
